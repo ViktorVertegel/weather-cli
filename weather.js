@@ -2,6 +2,7 @@
 import { getArgs } from './helpers/args.js'
 import { printHelp, printSuccess, printError } from './services/log.service.js';
 import { saveKeyValue } from './services/storage.service.js';
+import { getWeather } from './services/api.service.js';
 
 const saveToken = async (token) => {
     if (!token.length) {
@@ -29,6 +30,8 @@ const initCLI = () => {
     if (args.t){
         return saveToken(args.t);
     }
+
+    getWeather("moscow");
     //Выводим погоду
 }
 

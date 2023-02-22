@@ -21,7 +21,8 @@ const saveKeyValue = async (key, value) => {
 }
 
 const getKeyValue = async (key) => {
-    if (await isExist(filePath)) {
+    if (isExist(filePath)) {
+        console.log("mark");
         const file = await promises.readFile(filePath);
         const data = JSON.parse(file);
         return data[key];
