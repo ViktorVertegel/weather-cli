@@ -16,7 +16,7 @@ import { getKeyValue, TOKEN_DICTIONARY } from './storage.service.js';
             lang: 'ru',
             units: 'metric'}
         });
-        console.log(data);
+        //console.log(data);
     
         return data;
 
