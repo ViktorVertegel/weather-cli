@@ -5,7 +5,7 @@ import { promises } from 'fs';
 const filePath = join(homedir(), "weather-data.json");
 
 const TOKEN_DICTIONARY = {
-    token: "token",
+    token: 'token',
     city: 'city'
 }
 
@@ -21,10 +21,10 @@ const saveKeyValue = async (key, value) => {
 }
 
 const getKeyValue = async (key) => {
-    if (isExist(filePath)) {
-        console.log("mark");
+    if (await isExist(filePath)) {
         const file = await promises.readFile(filePath);
         const data = JSON.parse(file);
+       
         return data[key];
     }
     return undefined;
@@ -32,7 +32,7 @@ const getKeyValue = async (key) => {
 
 const isExist = async (path) => {
     try {
-        await promices.stat(path);
+        await promises.stat(path);
         return true;
     } catch (e) {
         return false;
